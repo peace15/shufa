@@ -1,0 +1,69 @@
+/* 页数 */
+.mulu{ 
+    /*方块颜色*/
+    background: #FF9966;
+    /* 方块长 */
+    width: 70px;
+    /*方块高*/
+    height: 35px;
+    /*水平居中*/
+    text-align: center;
+    /*行距设为与div高度一致,垂直居中*/
+     line-height: 35px; 
+    /*移动方块*/
+    margin-left: 35%;
+   /* 字体颜色 */
+    color:#FFF;
+    /* 浮动不让div沾满整行 */
+    float: left;
+}
+/* 经文 */
+.jw{
+        /*水平居中*/
+        text-align: center;
+        
+}
+/* 内容部分 */
+.nr{
+    margin-left: 15%;
+    margin-right: 15%;
+    height:100px;
+    /* 图形边框粗细 */
+    border:1px solid red;
+}
+/* 表格 */
+.tb{
+    margin-left: 1%;
+    margin-bottom: 60px;
+}
+/* 音频 */
+.music{
+    /* 播放器长度 */
+margin-left: 10%;
+width: 80%;
+/* 定位在下面 */
+position:fixed;
+bottom: 1px;
+}
+/* 搜索框 */
+#myInput {
+width:100%; 
+font-size: 16px;  /*加大字体*/
+padding: 12px 40px 12px 40px; 
+border: 1px solid #ddd; 
+margin-bottom: 10px; 
+top: 0%;
+position: fixed;
+background-color: #dddddd8a;
+width: 100%;
+left: 0px;
+}
+h1{
+    margin-top: 60px;
+    text-align: center;color: #fff;
+}
+
+    /* 表格字体大小 */
+    td{
+        font-size: 15px;
+    }
