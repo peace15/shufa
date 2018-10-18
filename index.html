@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="word.css">
+        <link rel="stylesheet" href="app.css">
+
+        <title>圣经话语</title>
+</head>
+
+<body style="padding-bottom: 40px;">
+        <h1>圣经话语</h1>
+        <table id="test">
+                <!-- 定义表格的行 -->
+                <tr class="0">
+                        <!-- 定义表格单元 -->
+                        <td> 第一页</td>
+                        <td class="jw">创世纪1:1-5</td>
+                </tr>
+
+                <tr class="1">
+                        <td>第二页</td>
+                        <td class="jw">创世纪1:1-5</td>
+                </tr>
+                <tr class="2">
+                        <td>第三页</td>
+                        <td class="jw">创世纪1:6-8</td>
+                </tr>
+                <tr class="3">
+                        <td>第四页</td>
+                        <td class="jw">创世纪1:6-8</td>
+                </tr>
+                <tr>
+                        <td>第五页</td>
+                        <td class="jw">创世纪1:9、10、11、13</td>
+
+                </tr>
+                <tr>
+                        <td>第六页</td>
+                        <td class="jw">创世纪1:9、10、11、13</td>
+                </tr>
+                <tr>
+                        <td>第七页</td>
+                        <td class="jw">创世纪1:14-17.19</td>
+                </tr>
+                <tr>
+                        <td>第八页</td>
+                        <td class="jw">创世纪1:14-17.19</td>
+                </tr>
+                <tr>
+                        <td>第九页</td>
+                        <td class="jw">创世纪1:20-30</td>
+                </tr>
+                <tr>
+                        <td>第十页</td>
+                        <td class="jw">创世纪1:20-30</td>
+                </tr>
+                <tr>
+                        <td>第十一页</td>
+                        <td class="jw">创世纪1:26</td>
+                </tr>
+                <tr>
+                        <td>第十二页</td>
+                        <td class="jw">创世纪1:27-31</td>
+                </tr>
+                <tr>
+                        <td>第十三页</td>
+                        <td class="jw">创世纪1:27-31</td>
+                </tr>
+                <tr>
+                        <td>第十四页</td>
+                        <td class="jw">创世纪2:1-3</td>
+                </tr>
+                <tr>
+                        <td>第十五页</td>
+                        <td class="jw">创世纪2:1-3</td>
+                </tr>
+                <tr>
+                        <tr>
+                                <td>第十六页</td>
+                                <td class="jw">创世纪2:7</td>
+                        </tr>
+                        <tr>
+                                <td>第十七页</td>
+                                <td class="jw">创世纪2:18、24</td>
+                        </tr>
+                        <tr>
+                                <td>第十八页</td>
+                                <td class="jw">创世纪2:18、24</td>
+                        </tr>
+                        <tr>
+                                <tr>
+                                        <td>第十九页</td>
+                                        <td class="jw">创世纪3:20、21</td>
+                                </tr>
+        </table>
+        <p style="margin-top: 60px"></p>
+        <!-- 播放器 -->
+        <audio src="1.mp3" controls="controls" class="audio" style="display: none"></audio>
+
+        <div class="audio-info" style="display: none;">
+                <p class="audio-name">0</p>
+                <p class="singer">0</p>
+        </div>
+        <!--播放器进度条-->
+        <div class="duration-bar">
+                <div class="start-time">00:00</div>
+                <div class="time-bar">
+                        <div class="inner-bar"></div>
+                        <div class="outline-bar"></div>
+                        <div class="time-point"></div>
+                </div>
+                <div class="end-time"></div>
+        </div>
+        <!--播放器样式-->
+        <div class="operate" style="right: 0px;padding-bottom: 5px;">
+                <!-- 上一首 -->
+                <img src="assets/images/previous.png" alt="" class="toggle-btn" onclick="add()">
+                <!-- 暂停播放 -->
+                <img src="assets/images/play.png" alt="" class="play operate-btn" id="play" onclick="change_pic()">
+                <!-- 下一首 -->
+                <img src="assets/images/next.png" alt="" class="toggle-btn" onclick="next()">
+        </div>
+
+        <script src="utils.js"></script>
+        <script src="main.js"></script>
+        <script>
+                //定义变量
+                y = 0;
+                //定义点击函数,点击播放改页数的音频
+                window.onload = function () {
+                        //定义ID为test下面的li标签
+                        var obj_lis = document.getElementById("test").getElementsByTagName("tr");
+                        //循环li标签
+                        for (i = 0; i < obj_lis.length; i++) {
+                                //点击标签显示
+                                obj_lis[i].onclick = function () {
+                                        //全局变量
+                                        y = this.className;
+                                        //定义变量删除获取行的src
+                                        function obj() { };
+                                        var obj = new obj();
+                                        console.log(obj.src);
+                                        //将点击到的li标签的class属性传到audio的src,修改播放路径
+                                        audio.src = audiosSrc[this.className];
+                                        var imgObj = document.getElementById("play");
+                                        imgObj.src = "assets/images/pause.png";
+                                        //播放音频
+                                        audio.play();
+                                }
+                        }
+                }
+                //音频资源
+                var audiosSrc = ["1.mp3", "2.mp3", "3.mp3", "4.mp3"];
+                //下一首
+                function next() {
+                        //判断如果ID小于等于3就执行下一首
+                        if (y <= 2) {
+                                y = parseInt(y) + 1;
+                                //修改音频播放
+                                audio.src = audiosSrc[y];
+                                //播放过音频
+                                var myMp3 = document.getElementById("audio");
+                                audio.play();
+                                var imgObj = document.getElementById("play");
+                                imgObj.src = "assets/images/pause.png";
+                                //播放音频
+                                audio.play();
+                        }
+                }
+                //上一首
+                function add() {
+                        //判断如果ID大于等于0就执行上一首
+                        if (y >= 1) {
+                                y = parseInt(y) - 1;
+                                //修改音频播放
+                                audio.src = audiosSrc[y];
+                                //播放过音频
+                                var myMp3 = document.getElementById("audio");
+                                audio.play();
+                                var imgObj = document.getElementById("play");
+                                imgObj.src = "assets/images/pause.png";
+                                //播放音频
+                                audio.play();
+                        }
+                }
+                //<!--自动播放下一首-->
+                audio.addEventListener('ended', function () {
+                        next();
+                }, false);
+
+                //更改播放样式
+                function change_pic() {
+                        var imgObj = document.getElementById("play");
+                        //判断图片是否为播放
+                        if (imgObj.getAttribute("src") == "assets/images/play.png") {
+                                //如果为播放就更换暂停
+                                imgObj.src = "assets/images/pause.png";
+                                //播放音频
+                                audio.play();
+                        }
+                        else {
+                                //反而更改为播放
+                                imgObj.src = "assets/images/play.png";
+                                //暂停
+                                audio.pause();
+                        }
+                }
+
+        </script>
+</body>
+
+</html>
